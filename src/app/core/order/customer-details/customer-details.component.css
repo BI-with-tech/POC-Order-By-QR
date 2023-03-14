@@ -13,5 +13,6 @@
 .form-field-custom{
   width: 100%;
 }
-.submit-button{
+.submit-button:hover{
+color: white;
 }

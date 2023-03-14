@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent {
-
+  name: string;
+  table: string;
+  comments: string;
 }
