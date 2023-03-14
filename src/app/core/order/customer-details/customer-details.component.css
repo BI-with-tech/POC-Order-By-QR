@@ -3,4 +3,15 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
+.input-card{
+  width: max(40vw, 400px);
+  margin: auto;
+  margin-top: 100px !important;
+  padding: 2rem;
+}
+.form-field-custom{
+  width: 100%;
+}
+.submit-button{
+}
