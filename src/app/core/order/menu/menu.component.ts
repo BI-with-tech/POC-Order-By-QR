@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StorageUtilities } from '../../utilities/storageUtilities';
 
 @Component({
   selector: 'app-menu',
@@ -18,5 +19,8 @@ export class MenuComponent {
       table: this.route.snapshot.params['table'], 
       comments: this.route.snapshot.params['comments'] 
     }
+    StorageUtilities.setCustomerName = this.customer.name;
+    StorageUtilities.setTableNumber = this.customer.table;
+    StorageUtilities.setPrimaryComments = this.customer.comments;
   }
 }
