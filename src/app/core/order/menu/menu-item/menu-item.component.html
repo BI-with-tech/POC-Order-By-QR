@@ -12,13 +12,16 @@
 
       <mat-list>
         <mat-list-item *ngFor="let item of menuItem['items']">
-           <mat-icon matListIcon>folder</mat-icon>
-           <h4 matListItemTitle>{{item.itemName}}</h4>
-           <p matListItemLine class="demo-2"> {{item.itemPrice}} </p>
+          <img matListItemAvatar [src]="'../../../../../assets/images/menu-item-img/' + item['itemImg']" alt="...">
+          <h3 matListItemTitle>{{item.itemName}}</h3>
+          <p matListItemLine>
+            <span>{{item.itemDesc}}</span>
+          </p>
         </mat-list-item>
-     </mat-list>
+      </mat-list>
 
     </mat-expansion-panel>
   </mat-accordion>
   <mat-divider></mat-divider>
+
   
