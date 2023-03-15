@@ -1,1 +1,24 @@
-<p>menu-item works!</p>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ menuItem['categoryName'] }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Click to {{panelOpenState ? 'collapse' : 'expand'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-list>
+        <mat-list-item *ngFor="let item of menuItem['items']">
+           <mat-icon matListIcon>folder</mat-icon>
+           <h4 matListItemTitle>{{item.itemName}}</h4>
+           <p matListItemLine class="demo-2"> {{item.itemPrice}} </p>
+        </mat-list-item>
+     </mat-list>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-divider></mat-divider>
+  

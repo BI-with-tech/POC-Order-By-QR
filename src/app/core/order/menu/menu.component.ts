@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StorageUtilities } from '../../utilities/storageUtilities';
+import { MenuBlueprint } from './menu.blueprint';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +11,7 @@ import { StorageUtilities } from '../../utilities/storageUtilities';
 export class MenuComponent {
 
   customer : {name: string, table: string, comments: string};
+  menuList: any;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -22,5 +24,6 @@ export class MenuComponent {
     StorageUtilities.setCustomerName = this.customer.name;
     StorageUtilities.setTableNumber = this.customer.table;
     StorageUtilities.setPrimaryComments = this.customer.comments;
+    this.menuList = MenuBlueprint.getMenuList;
   }
 }
