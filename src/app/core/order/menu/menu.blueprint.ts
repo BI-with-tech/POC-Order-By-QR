@@ -8,14 +8,14 @@ export class MenuBlueprint {
                         itemName: "Manchow Soup",
                         itemPrice: "120",
                         itemDesc: "Manchow Soup prepared with....",
-                        itemImg: "url"
+                        itemImg: "manchow_soup.jpeg"
                     },
                     {
                         itemCode: "STR1002",
                         itemName: "Hot N Sour Soup",
                         itemPrice: "150",
                         itemDesc: "Hot N Sour Soup prepared with....",
-                        itemImg: "url"
+                        itemImg: "hot-n-sour-soup.jpeg"
                     }
                 ]
             },
@@ -27,14 +27,14 @@ export class MenuBlueprint {
                         itemName: "Paneer Lababdar",
                         itemPrice: "290",
                         itemDesc: "Paneer Lababdar prepared with....",
-                        itemImg: "url"
+                        itemImg: "paneer-lababdar.jpeg"
                     },
                     {
                         itemCode: "MNC1002",
                         itemName: "Chicken Handi",
                         itemPrice: "350",
                         itemDesc: "Chicken Handi prepared with....",
-                        itemImg: "url"
+                        itemImg: "chicken-handi.webp"
                     }
                 ]
             }
