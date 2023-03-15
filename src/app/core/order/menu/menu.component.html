@@ -1,5 +1,17 @@
-<h1> Name : {{ customer.name }} </h1>
-<h1> Table : {{ customer.table }} </h1>
-<h1> Comments : {{ customer.comments }} </h1>
+<nav class="navbar-light bg-light">
+    <div class="container-fluid menu-header">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+    
+            <span [ngStyle]="{float: 'left'}">Welcome ! {{customer.name}}</span>
+        </div>
+        <div class="col-sm-6 col-md-6">
+    
+            <span [ngStyle]="{float: 'right'}">Table: {{customer.table}}</span>
+        </div>
+      </div>
+    </div>
+</nav>
+
 
 <app-menu-item *ngFor = "let menuItem of menuList" [menuItem] = "menuItem"></app-menu-item>
