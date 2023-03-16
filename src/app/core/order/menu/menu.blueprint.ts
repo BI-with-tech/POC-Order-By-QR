@@ -80,6 +80,33 @@ export class MenuBlueprint {
                         itemImg: "chicken-handi.webp"
                     }
                 ]
+            },
+            {
+                categoryName: "Snacks",
+                items: [
+                    {
+                        itemCode: "SNK1001",
+                        itemName: "Chicken 65",
+                        itemPrice: "170",
+                        itemDesc: "Chicken Pieces cooked with curry leaves and sweet & sour chinese spices",
+                        itemImg: "manchow_soup.jpeg"
+                    },
+                    {
+                        itemCode: "SNK1002",
+                        itemName: "Egg Omlette",
+                        itemPrice: "90",
+                        itemDesc: "Egg mixed and cooked with onion, chilli & tomato",
+                        itemImg: "hot-n-sour-soup.jpeg"
+                    },
+                    {
+                        itemCode: "SNK1003",
+                        itemName: "Egg Crispy Chilli",
+                        itemPrice: "65",
+                        itemDesc: " Crispy Boiled Egg, marinated with Indian spices, vegetables and deep fried",
+                        itemImg: "hot-n-sour-soup.jpeg"
+                    }
+                  
+                ]
             }
         ]
 
