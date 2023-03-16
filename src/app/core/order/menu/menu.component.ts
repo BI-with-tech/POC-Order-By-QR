@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StorageUtilities } from '../../utilities/storageUtilities';
 import { MenuBlueprint } from './menu.blueprint';
 
@@ -13,10 +13,10 @@ export class MenuComponent {
   customer : {name: string, table: string, comments: string};
   menuList: any;
   totalAmount: number = 0;
-
   orderList = new Map<string, any>();
+  completeOrderDetails = new Map<string, any>();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
     this.customer = {
@@ -33,12 +33,14 @@ export class MenuComponent {
 
   onItemListModified(menuItemResponse: Map<string, any>){
     this.orderList.set(menuItemResponse['category'], menuItemResponse['orderList']);
-    this.calculateTotalPrice();
+    this.calculateTotalPriceAndMakeOrderList();
   }
 
-  calculateTotalPrice(){
+  calculateTotalPriceAndMakeOrderList(){
     this.totalAmount = 0;
+    this.completeOrderDetails = new Map<string, any>();
       for(let entry of this.orderList.entries()){
+        var arrOrderDetails = [];
         var category = entry[0];
         var menuListOfCategory = this.menuList.filter((record) => {
           return record.categoryName == category;
@@ -49,9 +51,19 @@ export class MenuComponent {
           var individualMenuItem = menuListOfCategory.items.filter((record) => {
             return record.itemCode == itemId;
           })[0];
-          this.totalAmount += (quantity*individualMenuItem.itemPrice);
+          var individualMenuItemAmount = quantity*individualMenuItem.itemPrice;
+          this.totalAmount += individualMenuItemAmount;
+          individualMenuItem["quantity"] = quantity;
+          individualMenuItem["amount"] = individualMenuItemAmount;
+          arrOrderDetails.push(individualMenuItem);
         }
+        this.completeOrderDetails.set(category, arrOrderDetails);
       }
+  }
+
+  onOrderButtonClicked(){
+    StorageUtilities.setOrderDetails = JSON.stringify(Array.from(this.completeOrderDetails.entries()));
+    this.router.navigate(['./status'])
   }
 
 }
