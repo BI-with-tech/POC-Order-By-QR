@@ -13,6 +13,7 @@ import { OrderComponent } from './core/order/order.component';
 import { MenuComponent } from './core/order/menu/menu.component';
 import { CustomerDetailsComponent } from './core/order/customer-details/customer-details.component';
 import { MenuItemComponent } from './core/order/menu/menu-item/menu-item.component';
+import { StatusComponent } from './core/order/status/status.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MenuItemComponent } from './core/order/menu/menu-item/menu-item.compone
     OrderComponent,
     MenuComponent,
     CustomerDetailsComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    StatusComponent
   ],
   imports: [
     AppRoutingModule,

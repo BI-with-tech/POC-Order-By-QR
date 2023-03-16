@@ -12,6 +12,10 @@ export class StorageUtilities{
         return localStorage.getItem('primaryComments');
     }
 
+    public static get getOrderDetails(){
+        return localStorage.getItem('orderDetails');
+    }
+
     public static set setCustomerName(customerName: string){
         localStorage.setItem('customerName', customerName);
     }
@@ -22,5 +26,9 @@ export class StorageUtilities{
 
     public static set setPrimaryComments(primaryComments: string){
         localStorage.setItem('primaryComments', primaryComments)
+    }
+
+    public static set setOrderDetails(orderDetails: any){
+        localStorage.setItem('orderDetails', orderDetails);
     }
 }
