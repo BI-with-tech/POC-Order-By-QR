@@ -14,4 +14,4 @@
 </nav>
 
 
-<app-menu-item *ngFor = "let menuItem of menuList" [menuItem] = "menuItem"></app-menu-item>
+<app-menu-item *ngFor = "let menuItem of menuList" [menuItem] = "menuItem" (itemListModified) = "itemListModified"></app-menu-item>
