@@ -12,7 +12,7 @@ export class MenuComponent {
 
   customer : {name: string, table: string, comments: string};
   menuList: any;
-  totalAmount: number;
+  totalAmount: number = 0;
 
   orderList = new Map<string, any>();
 
@@ -37,18 +37,20 @@ export class MenuComponent {
   }
 
   calculateTotalPrice(){
-    console.log("I came here");
     this.totalAmount = 0;
       for(let entry of this.orderList.entries()){
         var category = entry[0];
+        var menuListOfCategory = this.menuList.filter((record) => {
+          return record.categoryName == category;
+        })[0];
         for(let item of entry[1]){
           var itemId = item[0];
           var quantity = item[1];
-          var price = this.menuList.category
-          console.log(category, itemId, quantity);
+          var individualMenuItem = menuListOfCategory.items.filter((record) => {
+            return record.itemCode == itemId;
+          })[0];
+          this.totalAmount += (quantity*individualMenuItem.itemPrice);
         }
-        console.log(entry[0]);
-        console.log(entry[1]);
       }
   }
 
