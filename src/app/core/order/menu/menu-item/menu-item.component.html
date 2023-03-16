@@ -17,11 +17,11 @@
             <span [ngStyle]="{float: 'left'}">{{item.itemName}}</span>
             <span [ngStyle]="{float: 'right'}">
               <div class="flex-container-add-button">        
-                <button mat-flat-button color="primary" class="add-remove-button" (click)="subtractItem(item.itemCode)">
+                <button mat-flat-button color="primary" class="add-remove-button" (click)="subtractItem(item.itemCode, item.itemPrice)">
                   -
                 </button>
                 <p class="flex-items-add-button" [innerText]="getItemCount(item.itemCode)"></p>        
-                <button mat-flat-button color="primary" class="add-remove-button" (click)="addItem(item.itemCode)">
+                <button mat-flat-button color="primary" class="add-remove-button" (click)="addItem(item.itemCode, item.itemPrice)">
                   +
                 </button>
               </div>

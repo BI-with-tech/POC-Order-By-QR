@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-item',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MenuItemComponent {
   @Input() menuItem: any;
+  @Output() itemListModified = new EventEmitter<{orderList: Map<string, string>, category: string}>();
 
   panelOpenState = false;
   orderArray = new Map();
@@ -18,7 +19,7 @@ export class MenuItemComponent {
     else{
       this.orderArray.set(itemCode, 1);
     }
-    console.log(this.orderArray);
+    this.itemListModified.emit({orderList: this.orderArray, category: this.menuItem.categoryName});
   }
 
   subtractItem(itemCode: string){
@@ -28,7 +29,7 @@ export class MenuItemComponent {
         this.orderArray.delete(itemCode);
       }
     }
-    console.log(this.orderArray);
+    this.itemListModified.emit({orderList: this.orderArray, category: this.menuItem.categoryName});
   }
 
   getItemCount(itemCode: string){
