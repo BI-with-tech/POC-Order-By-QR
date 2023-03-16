@@ -16,7 +16,22 @@ export class MenuBlueprint {
                         itemPrice: "150",
                         itemDesc: "Hot N Sour Soup prepared with....",
                         itemImg: "hot-n-sour-soup.jpeg"
+                    },
+                    {
+                        itemCode: "STR1003",
+                        itemName: "Tomato Soup",
+                        itemPrice: "110",
+                        itemDesc: "Tomato Soup prepared with....",
+                        itemImg: "hot-n-sour-soup.jpeg"
+                    },
+                    {
+                        itemCode: "STR1004",
+                        itemName: "Sweet Corn Soup",
+                        itemPrice: "130",
+                        itemDesc: "Sweet Corn Soup prepared with....",
+                        itemImg: "hot-n-sour-soup.jpeg"
                     }
+                  
                 ]
             },
             {
@@ -33,6 +48,34 @@ export class MenuBlueprint {
                         itemCode: "MNC1002",
                         itemName: "Chicken Handi",
                         itemPrice: "350",
+                        itemDesc: "Chicken Handi prepared with....",
+                        itemImg: "chicken-handi.webp"
+                    },
+                    {
+                        itemCode: "MNC1003",
+                        itemName: "Paneer Butter Masala",
+                        itemPrice: "170",
+                        itemDesc: "Paneer cooked with white gravy, dry fruits and cream",
+                        itemImg: "chicken-handi.webp"
+                    },
+                    {
+                        itemCode: "MNC1004",
+                        itemName: "Paneer Chilly",
+                        itemPrice: "160",
+                        itemDesc: "Paneer cubes cooked with, capsicum, onion, chilli with chinese spices",
+                        itemImg: "chicken-handi.webp"
+                    },
+                    {
+                        itemCode: "MNC1005",
+                        itemName: "Matar Paneer",
+                        itemPrice: "180",
+                        itemDesc: "Paneer cubes, green peas prepared in tomato gravy",
+                        itemImg: "chicken-handi.webp"
+                    },
+                    {
+                        itemCode: "MNC1006",
+                        itemName: "Butter Naan",
+                        itemPrice: "55",
                         itemDesc: "Chicken Handi prepared with....",
                         itemImg: "chicken-handi.webp"
                     }
