@@ -1,0 +1,12 @@
+.card-subtitle{
+    margin: 0 !important;
+    padding-top: 0.25rem;
+}
+.view-order-button{
+    font-size: smaller;
+    padding: 2px 4px;
+}
+.order-card-instance{
+    height: 12.5rem;
+    width: 16rem;
+}
