@@ -22,3 +22,8 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+.menu-item-custom{
+    width: min(50rem, 100%);
+    display: block;
+    margin: auto;
+}
