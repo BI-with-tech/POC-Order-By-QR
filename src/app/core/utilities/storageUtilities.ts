@@ -16,6 +16,10 @@ export class StorageUtilities{
         return localStorage.getItem('orderDetails');
     }
 
+    public static get getAllOrders(){
+        return localStorage.getItem('allOrders');
+    }
+
     public static set setCustomerName(customerName: string){
         localStorage.setItem('customerName', customerName);
     }
@@ -30,5 +34,9 @@ export class StorageUtilities{
 
     public static set setOrderDetails(orderDetails: any){
         localStorage.setItem('orderDetails', orderDetails);
+    }
+
+    public static set setAllOrders(allOrders: any){
+        localStorage.setItem('allOrders', allOrders);
     }
 }

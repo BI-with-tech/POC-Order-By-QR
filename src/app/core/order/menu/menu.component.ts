@@ -63,6 +63,25 @@ export class MenuComponent {
 
   onOrderButtonClicked(){
     StorageUtilities.setOrderDetails = JSON.stringify(Array.from(this.completeOrderDetails.entries()));
+
+    var newOrder = new Map<String, any>();
+    newOrder.set("customerName", StorageUtilities.getCustomerName);
+    newOrder.set("tableNumber", StorageUtilities.getTableNumber);
+    newOrder.set("comments", StorageUtilities.getPrimaryComments);
+    newOrder.set("orderList", this.completeOrderDetails);
+    newOrder.set("orderTime", new Date());
+    newOrder.set("orderStatus", "New");
+
+    if(StorageUtilities.getAllOrders != null){
+      var existingOrders = JSON.parse(StorageUtilities.getAllOrders);
+      existingOrders.push(JSON.stringify(Array.from(newOrder.entries())));
+      StorageUtilities.setAllOrders = JSON.stringify(existingOrders);
+    }
+    else{
+      var ordersArray = [];
+      ordersArray.push(JSON.stringify(Array.from(newOrder.entries())));
+      StorageUtilities.setAllOrders = JSON.stringify(ordersArray);
+    }
     this.router.navigate(['./status'])
   }
 
