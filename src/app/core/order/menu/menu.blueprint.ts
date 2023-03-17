@@ -41,14 +41,14 @@ export class MenuBlueprint {
                         itemCode: "MNC1001",
                         itemName: "Paneer Lababdar",
                         itemPrice: "290",
-                        itemDesc: "Paneer Lababdar prepared with....",
+                        itemDesc: "Paneer cubes prepared with spiced tomato and cashew paste that and sautéed with onions and more spices.",
                         itemImg: "paneer-lababdar.jpeg"
                     },
                     {
                         itemCode: "MNC1002",
                         itemName: "Chicken Handi",
                         itemPrice: "350",
-                        itemDesc: "Chicken Handi prepared with....",
+                        itemDesc: "Chicken Pieces slow-cooked in earthen clay pot (called handi) with aromatic spices, yogurt, cream, and fragrant herbs.",
                         itemImg: "chicken-handi.webp"
                     },
                     {
