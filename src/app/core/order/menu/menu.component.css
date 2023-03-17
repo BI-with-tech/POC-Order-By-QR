@@ -13,6 +13,7 @@
     padding: 0.4rem;
  }
 .flex-container-footer{
+    
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
@@ -22,6 +23,20 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+#space{
+    padding: 50px;
+}
+
+.navbar-custom{
+    background-color: #5B270B;
+}
+.text-style-lf{
+    float: 'left';
+    color:white;
+    font-size: medium;
+    font-family: "Arial";
+}
+
 .menu-item-custom{
     width: min(50rem, 100%);
     display: block;
