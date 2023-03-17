@@ -1,43 +1,62 @@
 <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ menuItem['categoryName'] }}
-        </mat-panel-title>
-        <mat-panel-description>
-          Click to {{panelOpenState ? 'collapse' : 'expand'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ menuItem['categoryName'] }}
+      </mat-panel-title>
+      <mat-panel-description>
+        Click to {{panelOpenState ? 'collapse' : 'expand'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-      <mat-list [ngStyle]="{marginTop: '8px'}">
-        <mat-list-item *ngFor="let item of menuItem['items']">
-          <img matListItemAvatar [src]="'../../../../../assets/images/menu-item-img/' + item['itemImg']" alt="..." style="margin-top: 0.2rem">
-          <div matListItemTitle style="margin-bottom: -25px !important">
-            <span [ngStyle]="{float: 'left'}">{{item.itemName}}</span>
-            <span [ngStyle]="{float: 'right'}">
-              <div class="flex-container-add-button">        
-                <button mat-flat-button color="primary" class="add-remove-button" (click)="subtractItem(item.itemCode, item.itemPrice)">
-                  -
-                </button>
-                <p [innerText]="getItemCount(item.itemCode)"></p>        
-                <button mat-flat-button color="primary" class="add-remove-button" (click)="addItem(item.itemCode, item.itemPrice)">
-                  +
-                </button>
-              </div>
-            </span>
+    <div [ngStyle]="{marginTop: '8px'}">
+      <div *ngFor="let item of menuItem['items']">
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="col-3 col-sm-2 col-md-2">
+            <img [src]="'../../../../../assets/images/menu-item-img/' + item['itemImg']" alt="..."
+              style="height: 5rem; width: 5rem; margin-top: 0.2rem">
           </div>
-          <p matListItemLine>
-            <span [ngStyle]="{float: 'left'}">{{item.itemDesc}}</span>
-            <span [ngStyle]="{float: 'right'}">
-              {{item.itemPrice}}
-            </span>
-          </p>
-        </mat-list-item>
-      </mat-list>
+          <div class="col-9 col-sm-10 col-md-10">
+            <div class="row">
+              <div matListItemTitle style="margin-bottom: -25px !important">
+                <div class="col-8" style="font-weight: 700;">
+                  <span [ngStyle]="{float: 'left'}">{{item.itemName}}</span>
+                </div>
+                <dic class="col-4">
+                  <span [ngStyle]="{float: 'right'}">
+                    <div class="flex-container-add-button">
+                      <button color="primary" class="add-remove-button"
+                        (click)="subtractItem(item.itemCode, item.itemPrice)">
+                        -
+                      </button>
+                      <p [innerText]="getItemCount(item.itemCode)"></p>
+                      <button color="primary" class="add-remove-button"
+                        (click)="addItem(item.itemCode, item.itemPrice)">
+                        +
+                      </button>
+                    </div>
+                  </span>
+                </dic>
+              </div>
 
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-divider></mat-divider>
+            </div>
 
-  
+            <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
+              <div class="col-8" style="font-size: small;">
+                <span [ngStyle]="{float: 'left'}">{{item.itemDesc}}</span>
+              </div>
+
+              <div class="col-4">
+                <span [ngStyle]="{float: 'right', fontWeight: 1000 }">
+                  {{ item.itemPrice }} Rs/-
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-divider></mat-divider>
