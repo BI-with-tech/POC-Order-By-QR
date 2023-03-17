@@ -64,12 +64,15 @@ export class MenuComponent {
   onOrderButtonClicked(){
     StorageUtilities.setOrderDetails = JSON.stringify(Array.from(this.completeOrderDetails.entries()));
 
+    //Date
+    const currDate = new Date();
+
     var newOrder = new Map<String, any>();
     newOrder.set("customerName", StorageUtilities.getCustomerName);
     newOrder.set("tableNumber", StorageUtilities.getTableNumber);
     newOrder.set("comments", StorageUtilities.getPrimaryComments);
-    newOrder.set("orderList", this.completeOrderDetails);
-    newOrder.set("orderTime", new Date());
+    newOrder.set("orderList", JSON.stringify(Array.from(this.completeOrderDetails.entries())));
+    newOrder.set("orderTime", currDate.toLocaleDateString() + " " + currDate.toLocaleTimeString());
     newOrder.set("orderStatus", "New");
 
     if(StorageUtilities.getAllOrders != null){

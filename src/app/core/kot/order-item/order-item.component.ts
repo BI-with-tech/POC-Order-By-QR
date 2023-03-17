@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-order-item',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class OrderItemComponent {
 
+  @Input() orderItem: any;
+  @Input() orderNumber: any;
+  ordersArray: any;
+
+  ngOnInit(){
+    console.log(this.orderItem);
+    this.ordersArray = new Map(JSON.parse(this.orderItem.get('orderList')));
+    console.log(this.ordersArray);
+  }
 }
