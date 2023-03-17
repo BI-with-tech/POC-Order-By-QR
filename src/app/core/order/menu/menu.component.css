@@ -1,0 +1,24 @@
+.menu-header{
+    padding-top: 1rem;
+    padding-bottom: 1rem;;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(205, 205, 205);
+    color: rgb(91, 20, 20);
+    text-align: center;
+    padding: 0.4rem;
+ }
+.flex-container-footer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+.total-amount{
+    padding-right: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
