@@ -15,6 +15,9 @@ export class KotComponent {
   newOrders: any;
   preparingOrders: any;
   completedOrders: any;
+  nosNewOrders: number;
+  nosPreparingOrders: number;
+  nosCompletedOrders: number;
 
   openNewOrderPerspective(){
     console.log("New Order Perspective");
@@ -56,9 +59,34 @@ export class KotComponent {
     this.completedOrders = this.allOrders.filter((order) => {
       return order.get("orderStatus") == "Completed";
     });
+
+    this.nosNewOrders = this.newOrders.length;
+    this.nosPreparingOrders = this.preparingOrders.length;
+    this.nosCompletedOrders = this.completedOrders.length;
     console.log(this.newOrders);
     console.log(this.preparingOrders);
     console.log(this.completedOrders);
   }
 
+  onChangeOrderStateEvent(chageOrderObj: string){
+    this.changeOrderStatus(chageOrderObj['orderTime'], chageOrderObj['newStatus']);
+    this.refreshOrders();
+  }
+  
+  changeOrderStatus(orderTime: string, newStatus: string){
+    console.log(orderTime);
+    console.log(this.allOrders);
+    this.allOrders.filter((order) => {
+      return order.get("orderTime") == orderTime;
+    }).map((order) =>{
+      order.set("orderStatus", newStatus);
+    });
+    console.log(this.allOrders);
+
+    var existingOrders = [];
+    for(let order of this.allOrders){
+      existingOrders.push(JSON.stringify(Array.from(order.entries())));
+    }
+    StorageUtilities.setAllOrders = JSON.stringify(existingOrders);
+  }
 }

@@ -1,30 +1,49 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Orders</a>
+      <a class="navbar-brand" disabled>Orders</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" (click) = "openNewOrderPerspective()"
-              [ngClass]="{ active: newOrdersPerspective }">New Orders</a>
+            <a class="nav-link active anchor-items" (click) = "openNewOrderPerspective()"
+              [ngClass]="{ active: newOrdersPerspective }">New Orders
+              <span class="badge bg-danger rounded-pill" *ngIf = "nosNewOrders > 0" > {{ nosNewOrders }} </span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click) = "openPreparingPerspective()"
-              [ngClass]="{ active: preparingPerspective }">Preparing</a>
+            <a class="nav-link anchor-items" (click) = "openPreparingPerspective()"
+              [ngClass]="{ active: preparingPerspective }">Preparing
+              <span class="badge bg-primary rounded-pill" *ngIf = "nosPreparingOrders > 0" > {{ nosPreparingOrders }} </span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click) = "openCompletedPerspective()"
-              [ngClass]="{ active: completedPerspective }">Completed</a>
+            <a class="nav-link anchor-items" (click) = "openCompletedPerspective()"
+              [ngClass]="{ active: completedPerspective }">Completed
+              <span class="badge bg-secondary rounded-pill" *ngIf = "nosCompletedOrders > 0" > {{ nosCompletedOrders }} </span>
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div *ngIf = "newOrdersPerspective">
-    <app-order-item *ngFor = "let orderItem of newOrders; let orderNumber = index;" [orderItem] = "orderItem" [orderNumber] = "orderNumber"></app-order-item>
+  <div *ngIf = "newOrdersPerspective" class="flex-box-orders">
+    <app-order-item *ngFor = "let orderItem of newOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "New"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)" class="order-card">
+    </app-order-item>
   </div>
-  <div *ngIf = "preparingPerspective"></div>
-  <div *ngIf = "completedPerspective"></div>
+  <div *ngIf = "preparingPerspective" class="flex-box-orders">
+    <app-order-item *ngFor = "let orderItem of preparingOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "Preparing"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)" class="order-card">
+    </app-order-item>
+  </div>
+  <div *ngIf = "completedPerspective" class="flex-box-orders">
+    <app-order-item *ngFor = "let orderItem of completedOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "Completed"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)" class="order-card">
+    </app-order-item>
+  </div>

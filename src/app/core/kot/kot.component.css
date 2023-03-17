@@ -1,0 +1,12 @@
+.flex-box-orders{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+}
+.order-card{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.anchor-items{
+    cursor: pointer;
+}

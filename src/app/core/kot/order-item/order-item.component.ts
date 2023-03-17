@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-order-item',
@@ -9,11 +9,20 @@ export class OrderItemComponent {
 
   @Input() orderItem: any;
   @Input() orderNumber: any;
+  @Input() orderType: any;
+  @Output() changeOrderStateEvent = new EventEmitter<{orderTime: string, newStatus: string}>();
   ordersArray: any;
 
   ngOnInit(){
-    console.log(this.orderItem);
     this.ordersArray = new Map(JSON.parse(this.orderItem.get('orderList')));
-    console.log(this.ordersArray);
+  }
+  moveToNew(){
+    this.changeOrderStateEvent.emit({orderTime: this.orderItem.get('orderTime'), newStatus: "New"});
+  }
+  moveToPreparing(){
+    this.changeOrderStateEvent.emit({orderTime: this.orderItem.get('orderTime'), newStatus: "Preparing"});
+  }
+  moveToCompleted(){
+    this.changeOrderStateEvent.emit({orderTime: this.orderItem.get('orderTime'), newStatus: "Completed"});
   }
 }
