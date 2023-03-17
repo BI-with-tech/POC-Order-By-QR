@@ -7,29 +7,29 @@ export class MenuBlueprint {
                         itemCode: "STR1001",
                         itemName: "Manchow Soup",
                         itemPrice: "120",
-                        itemDesc: "Manchow Soup prepared with....",
+                        itemDesc: "Chinese vegetarian soup made with mixed vegetables, garlic, ginger, soya sauce and ground pepper",
                         itemImg: "manchow_soup.jpeg"
                     },
                     {
                         itemCode: "STR1002",
                         itemName: "Hot N Sour Soup",
                         itemPrice: "150",
-                        itemDesc: "Hot N Sour Soup prepared with....",
+                        itemDesc: "Spicy and hot soup made with mixed fresh vegetables, mushrooms, spices and soy sauce",
                         itemImg: "hot-n-sour-soup.jpeg"
                     },
                     {
                         itemCode: "STR1003",
                         itemName: "Tomato Soup",
                         itemPrice: "110",
-                        itemDesc: "Tomato Soup prepared with....",
-                        itemImg: "hot-n-sour-soup.jpeg"
+                        itemDesc: "Fresh Tomatoes with Heavy cream, olive oil, bread cubes and low sodium",
+                        itemImg: "Tomato Soup.jpg"
                     },
                     {
                         itemCode: "STR1004",
                         itemName: "Sweet Corn Soup",
                         itemPrice: "130",
-                        itemDesc: "Sweet Corn Soup prepared with....",
-                        itemImg: "hot-n-sour-soup.jpeg"
+                        itemDesc: "Sweet corn cooked with french beans, corn flour, carrots and butter",
+                        itemImg: "Sweet Corn.jpg"
                     }
                   
                 ]
@@ -41,14 +41,14 @@ export class MenuBlueprint {
                         itemCode: "MNC1001",
                         itemName: "Paneer Lababdar",
                         itemPrice: "290",
-                        itemDesc: "Paneer Lababdar prepared with....",
+                        itemDesc: "Paneer cubes prepared with spiced tomato and cashew paste that and sautéed with onions and more spices.",
                         itemImg: "paneer-lababdar.jpeg"
                     },
                     {
                         itemCode: "MNC1002",
                         itemName: "Chicken Handi",
                         itemPrice: "350",
-                        itemDesc: "Chicken Handi prepared with....",
+                        itemDesc: "Chicken Pieces slow-cooked in earthen clay pot (called handi) with aromatic spices, yogurt, cream, and fragrant herbs.",
                         itemImg: "chicken-handi.webp"
                     },
                     {
@@ -56,28 +56,28 @@ export class MenuBlueprint {
                         itemName: "Paneer Butter Masala",
                         itemPrice: "170",
                         itemDesc: "Paneer cooked with white gravy, dry fruits and cream",
-                        itemImg: "chicken-handi.webp"
+                        itemImg: "Paneer Butter Masala.jpg"
                     },
                     {
                         itemCode: "MNC1004",
-                        itemName: "Paneer Chilly",
+                        itemName: "Paneer Chilli",
                         itemPrice: "160",
                         itemDesc: "Paneer cubes cooked with, capsicum, onion, chilli with chinese spices",
-                        itemImg: "chicken-handi.webp"
+                        itemImg: "Chilli Paneer.jpg"
                     },
                     {
                         itemCode: "MNC1005",
                         itemName: "Matar Paneer",
                         itemPrice: "180",
                         itemDesc: "Paneer cubes, green peas prepared in tomato gravy",
-                        itemImg: "chicken-handi.webp"
+                        itemImg: "Matar Paneer.jpg"
                     },
                     {
                         itemCode: "MNC1006",
                         itemName: "Butter Naan",
                         itemPrice: "55",
-                        itemDesc: "Chicken Handi prepared with....",
-                        itemImg: "chicken-handi.webp"
+                        itemDesc: "Prepared with wheat floor and onion/garlic",
+                        itemImg: "Butter Naan.jpg"
                     }
                 ]
             },
@@ -89,21 +89,21 @@ export class MenuBlueprint {
                         itemName: "Chicken 65",
                         itemPrice: "170",
                         itemDesc: "Chicken Pieces cooked with curry leaves and sweet & sour chinese spices",
-                        itemImg: "manchow_soup.jpeg"
+                        itemImg: "Chicken 65.jpg"
                     },
                     {
                         itemCode: "SNK1002",
                         itemName: "Egg Omlette",
                         itemPrice: "90",
                         itemDesc: "Egg mixed and cooked with onion, chilli & tomato",
-                        itemImg: "hot-n-sour-soup.jpeg"
+                        itemImg: "Egg Omlette.jpg"
                     },
                     {
                         itemCode: "SNK1003",
                         itemName: "Egg Crispy Chilli",
                         itemPrice: "65",
                         itemDesc: " Crispy Boiled Egg, marinated with Indian spices, vegetables and deep fried",
-                        itemImg: "hot-n-sour-soup.jpeg"
+                        itemImg: "Egg Crispy.jpg"
                     }
                   
                 ]
