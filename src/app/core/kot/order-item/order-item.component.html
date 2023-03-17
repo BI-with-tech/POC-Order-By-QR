@@ -27,12 +27,30 @@
         </div>
         <div class="modal-body">
           <div *ngFor = "let order of this.ordersArray | keyvalue">
-            {{order.key}}
+            <div class="card">
+              <div class="card-header">
+                {{order.key}}
+              </div>
+              <div class="card-body">
+                <div *ngFor = "let item of order.value" class="row">
+                  <p class="card-text col-sm-10 col-10">{{ item.itemName }}</p>
+                  <p class="card-text col-sm-2 col-2">{{ item.quantity }}</p>
+                </div>
+              </div>
+            </div>
+            <br>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" *ngIf = "orderType == 'New'">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Prepare</button>
+          <button type="button" class="btn btn-primary" (click)="moveToPreparing()" data-bs-dismiss="modal">Prepare</button>
+        </div>
+        <div class="modal-footer" *ngIf = "(orderType === 'Preparing')">
+          <button type="button" class="btn btn-secondary" (click)="moveToNew()" data-bs-dismiss="modal">Move Back</button>
+          <button type="button" class="btn btn-primary" (click)="moveToCompleted()" data-bs-dismiss="modal">Completed</button>
+        </div>
+        <div class="modal-footer" *ngIf = "orderType == 'Completed'">
+          <button type="button" class="btn btn-primary" (click)="moveToPreparing()" data-bs-dismiss="modal">Move Back</button>
         </div>
       </div>
     </div>

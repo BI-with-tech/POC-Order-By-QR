@@ -8,15 +8,21 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" (click) = "openNewOrderPerspective()"
-              [ngClass]="{ active: newOrdersPerspective }">New Orders</a>
+              [ngClass]="{ active: newOrdersPerspective }">New Orders
+              <span class="badge bg-danger rounded-pill" *ngIf = "nosNewOrders > 0" > {{ nosNewOrders }} </span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click) = "openPreparingPerspective()"
-              [ngClass]="{ active: preparingPerspective }">Preparing</a>
+              [ngClass]="{ active: preparingPerspective }">Preparing
+              <span class="badge bg-primary rounded-pill" *ngIf = "nosPreparingOrders > 0" > {{ nosPreparingOrders }} </span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click) = "openCompletedPerspective()"
-              [ngClass]="{ active: completedPerspective }">Completed</a>
+              [ngClass]="{ active: completedPerspective }">Completed
+              <span class="badge bg-secondary rounded-pill" *ngIf = "nosCompletedOrders > 0" > {{ nosCompletedOrders }} </span>
+            </a>
           </li>
         </ul>
       </div>
@@ -24,7 +30,20 @@
   </nav>
 
   <div *ngIf = "newOrdersPerspective">
-    <app-order-item *ngFor = "let orderItem of newOrders; let orderNumber = index;" [orderItem] = "orderItem" [orderNumber] = "orderNumber"></app-order-item>
+    <app-order-item *ngFor = "let orderItem of newOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "New"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)">
+    </app-order-item>
   </div>
-  <div *ngIf = "preparingPerspective"></div>
-  <div *ngIf = "completedPerspective"></div>
+  <div *ngIf = "preparingPerspective">
+    <app-order-item *ngFor = "let orderItem of preparingOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "Preparing"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)">
+    </app-order-item>
+  </div>
+  <div *ngIf = "completedPerspective">
+    <app-order-item *ngFor = "let orderItem of completedOrders; let orderNumber = index;" 
+      [orderItem] = "orderItem" [orderNumber] = "orderNumber" orderType = "Completed"
+      (changeOrderStateEvent) = "onChangeOrderStateEvent($event)">
+    </app-order-item>
+  </div>
