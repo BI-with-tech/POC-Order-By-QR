@@ -14,6 +14,8 @@ import { MenuComponent } from './core/order/menu/menu.component';
 import { CustomerDetailsComponent } from './core/order/customer-details/customer-details.component';
 import { MenuItemComponent } from './core/order/menu/menu-item/menu-item.component';
 import { StatusComponent } from './core/order/status/status.component';
+import { KotComponent } from './core/kot/kot.component';
+import { OrderItemComponent } from './core/kot/order-item/order-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { StatusComponent } from './core/order/status/status.component';
     MenuComponent,
     CustomerDetailsComponent,
     MenuItemComponent,
-    StatusComponent
+    StatusComponent,
+    KotComponent,
+    OrderItemComponent
   ],
   imports: [
     AppRoutingModule,
