@@ -1,13 +1,12 @@
-<nav class="navbar-light bg-light">
+<nav class="navbar-custom">
     <div class="container-fluid menu-header">
       <div class="row">
-        <div class="col-sm-6 col-md-6">
+        <div >
     
-            <span [ngStyle]="{float: 'left'}">Welcome ! {{customer.name}}</span>
-        </div>
-        <div class="col-sm-6 col-md-6">
+            <span class="text-style-lf">Welcome {{customer.name}}</span>
+        
     
-            <span [ngStyle]="{float: 'right'}">Table: {{customer.table}}</span>
+            <span [ngStyle]="{float: 'right',color:'white',fontFamily: 'Arial',fontSize:'medium'}">Table: {{customer.table}}</span>
         </div>
       </div>
     </div>
@@ -17,7 +16,7 @@
 <app-menu-item *ngFor = "let menuItem of menuList" [menuItem] = "menuItem" (itemListModified) = "onItemListModified($event)"></app-menu-item>
 
 
-
+<div id="space"></div>
 <div class="footer">
     <div class="flex-container-footer">
         <h3 class="total-amount"> <b>Amount:</b> {{ totalAmount }} </h3>
