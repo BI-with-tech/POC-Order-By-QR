@@ -20,21 +20,18 @@ export class KotComponent {
   nosCompletedOrders: number;
 
   openNewOrderPerspective(){
-    console.log("New Order Perspective");
     this.newOrdersPerspective = true;
     this.preparingPerspective = false;
     this.completedPerspective = false;
   }
 
   openPreparingPerspective(){
-    console.log("Preparing Perspective");
     this.newOrdersPerspective = false;
     this.preparingPerspective = true;
     this.completedPerspective = false;
   }
 
   openCompletedPerspective(){
-    console.log("Completed Perspective");
     this.newOrdersPerspective = false;
     this.preparingPerspective = false;
     this.completedPerspective = true;
@@ -63,9 +60,6 @@ export class KotComponent {
     this.nosNewOrders = this.newOrders.length;
     this.nosPreparingOrders = this.preparingOrders.length;
     this.nosCompletedOrders = this.completedOrders.length;
-    console.log(this.newOrders);
-    console.log(this.preparingOrders);
-    console.log(this.completedOrders);
   }
 
   onChangeOrderStateEvent(chageOrderObj: string){
