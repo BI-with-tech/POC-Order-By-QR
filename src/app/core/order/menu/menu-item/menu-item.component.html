@@ -26,12 +26,12 @@
                   <span [ngStyle]="{float: 'right'}">
                     <div class="flex-container-add-button">
                       <button class="add-remove-button"
-                        [ngStyle]="{marginLeft: '6px', color:getColor(getItemCount(item.itemCode))}"
+                        [ngStyle]="{marginLeft: '6px', color:getSubColor(getItemCount(item.itemCode))}"
                         (click)="subtractItem(item.itemCode, item.itemPrice)">
                         <b>-</b>
                       </button>
                       <p [innerText]="getItemCount(item.itemCode)"
-                        [ngStyle]="{color: getColor(getItemCount(item.itemCode)) }"></p>
+                        [ngStyle]="{color: getCountColor(getItemCount(item.itemCode)) }"></p>
                       <button class="add-remove-button" style="margin-right: 6px; color:#02bd21"
                         (click)="addItem(item.itemCode, item.itemPrice)">
                         <b>+</b>
@@ -44,7 +44,7 @@
 
             <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
               <div class="col-8" style="font-size: small;">
-                <div [ngStyle]="{float: 'left', 'font-size': '10px'}">{{item.itemDesc}}</div>
+                <div [ngStyle]="{float: 'left', 'font-size': '10px'}" (click)="descClicked(item)">{{descContent(item)}}</div>
               </div>
 
               <div class="col-4">

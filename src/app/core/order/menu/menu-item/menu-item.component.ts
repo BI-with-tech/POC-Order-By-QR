@@ -11,6 +11,7 @@ export class MenuItemComponent {
 
   panelOpenState = false;
   orderArray = new Map();
+  more = new Map();
 
   addItem(itemCode: string){
     if(this.orderArray.has(itemCode)){
@@ -40,12 +41,38 @@ export class MenuItemComponent {
       return 0;
   }
 
-  getColor(count: number){
+  getCountColor(count: number){
     if (count == 0){
       return '#adadad'
     }else{
       return '#02bd21'
     }
 
+  }
+
+  getSubColor(count: number){
+    if (count == 0){
+      return '#adadad'
+    }else{
+      return "red"
+    }
+
+  }
+
+  descContent(item){
+    let desc = new String (item.itemDesc);
+  
+    if (!this.more.has(item.itemCode)){
+      this.more.set(item.itemCode, false);
+    }
+    console.log(this.more[item.itemCode])
+    if ((desc.length > 50) && (this.more[item.itemCode] !== true)){
+      return desc.slice(0, 47) + '...'
+    }else{
+      return desc
+    }
+  }
+  descClicked(item){
+    this.more[item.itemCode] = !this.more[item.itemCode]
   }
 }
