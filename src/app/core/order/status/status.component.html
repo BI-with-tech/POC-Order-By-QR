@@ -1,5 +1,47 @@
 
-<div style="background-color: aliceblue; color: black;">
-<p>Order Details: </p>
-<p>{{ orderDetails }}</p>
+
+<div class="card text-dark bg-light mb-3 order-card-instance">
+    <div class="card-header">
+        <b>Table Number: {{ tableNumber }}</b>
+        <h4 class="card-subtitle mb-2 text-muted">{{ customerName }}</h4>
+    </div>
+    <div class="card-body">
+        <h4>Your Orders:</h4>
+        <div *ngFor = "let order of orderDetails | keyvalue">
+            <div class="card">
+              <div class="card-header">
+                {{order.key}}
+              </div>
+              <div class="card-body">
+                <div *ngFor = "let item of order.value" class="row">
+                  <p class="card-text col-sm-10 col-10">{{ item.itemName }}</p>
+                  <p class="card-text col-sm-2 col-2">{{ item.quantity }}</p>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+    </div>
+    <div class="row" style="padding: 2rem;">
+        <div class="col-lg-12">
+
+          <div class="horizontal-timeline">
+
+            <ul class="list-inline items d-flex justify-content-between">
+              <li class="list-inline-item items-list">
+                <p class="py-1 px-2 rounded text-white" [ngClass]="{ activeStatus: newOrderFlag }" style="background-color: #808080;">In Queue</p>
+              </li>
+              <li class="list-inline-item items-list">
+                <p class="py-1 px-2 rounded text-white" [ngClass]="{ activeStatus: preparingOrderFlag }" style="background-color: #808080;">Preparing</p>
+              </li>
+              <li class="list-inline-item items-list text-end" style="margin-right: 8px;">
+                <p class="py-1 px-2 rounded text-white" [ngClass]="{ activeStatus: completedOrderFlag }" style="background-color: #808080; margin-right: -8px;">Completed
+                </p>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+    </div>
 </div>

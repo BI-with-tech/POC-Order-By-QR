@@ -1,26 +1,21 @@
 <div class="input-card border border-2 rounded">
-  <img src="../../../../assets/images/logos/logo.jpeg">
-  <h1>Welcome to Taj Hotels</h1>
+  <img src="../../../../assets/images/logos/logo.webp" id="logo">
+  <h1 id="heading">Welcome to ABC Hotels</h1>
   <mat-form-field appearance="fill" class="form-field-custom">
     <mat-label>Your Name</mat-label>
     <input matInput [(ngModel)] = "name">
   </mat-form-field>
   <mat-form-field appearance="fill" class="form-field-custom">
     <mat-label>Table Number</mat-label>
-    <mat-select [(ngModel)] = "table">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-      <mat-option value="6">6</mat-option>
+    <mat-select [(ngModel)] = "table" (selectionChange) = "checkWhetherTableIsOccupied()">
+      <mat-option [value]="tableNumber" *ngFor = "let tableNumber of tableNumbers">{{ tableNumber }}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill" class="form-field-custom">
     <mat-label>Happy to listen any comments...</mat-label>
     <textarea matInput [(ngModel)] = "comments"></textarea>
   </mat-form-field>
-  <a mat-fab extended color="primary" class="submit-button" [routerLink]="['/menu', name, table, comments]">
+  <a mat-fab extended color="primary" class="submit-button" (click)="redirectToPath()">
     <mat-icon>login</mat-icon>
     Go to Menu
   </a>

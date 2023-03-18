@@ -10,6 +10,7 @@
   margin-top: 100px !important;
   padding: 2rem;
   background-color: white;
+  opacity: 0.8;
 }
 
 .form-field-custom{
@@ -19,7 +20,21 @@
 color: white;
 }
 
-h1{
+#logo{
+  width:15%;
+  height:15%;
+  float:left;
+  border: 2px solid #8E744B;
+  border-radius: 10%;
+}
+
+
+#heading{
   text-align: center;
   font-weight: 500;
+  width:85%;
+  float: right;
+  margin-top: 10px;
+  font-family: 'Brush Script MT', cursive;
+  color: #8E744B;
 }

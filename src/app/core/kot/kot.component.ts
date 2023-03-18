@@ -20,21 +20,18 @@ export class KotComponent {
   nosCompletedOrders: number;
 
   openNewOrderPerspective(){
-    console.log("New Order Perspective");
     this.newOrdersPerspective = true;
     this.preparingPerspective = false;
     this.completedPerspective = false;
   }
 
   openPreparingPerspective(){
-    console.log("Preparing Perspective");
     this.newOrdersPerspective = false;
     this.preparingPerspective = true;
     this.completedPerspective = false;
   }
 
   openCompletedPerspective(){
-    console.log("Completed Perspective");
     this.newOrdersPerspective = false;
     this.preparingPerspective = false;
     this.completedPerspective = true;
@@ -63,9 +60,6 @@ export class KotComponent {
     this.nosNewOrders = this.newOrders.length;
     this.nosPreparingOrders = this.preparingOrders.length;
     this.nosCompletedOrders = this.completedOrders.length;
-    console.log(this.newOrders);
-    console.log(this.preparingOrders);
-    console.log(this.completedOrders);
   }
 
   onChangeOrderStateEvent(chageOrderObj: string){
@@ -82,6 +76,19 @@ export class KotComponent {
       order.set("orderStatus", newStatus);
     });
     console.log(this.allOrders);
+
+    // If order is complete, vacate the table
+    if(newStatus=="Completed"){
+      var listOfOccupiedTables = JSON.parse(StorageUtilities.getOccupiedTables);
+      var tableNumberToVacate = this.allOrders.filter((order) => {
+        return order.get("orderTime") == orderTime;
+      })[0].get('tableNumber');
+      listOfOccupiedTables.forEach((element,index)=>{
+        if(element==tableNumberToVacate) delete listOfOccupiedTables[index];
+     });
+     
+      StorageUtilities.setOccupiedTables = JSON.stringify(listOfOccupiedTables);
+    }
 
     var existingOrders = [];
     for(let order of this.allOrders){
