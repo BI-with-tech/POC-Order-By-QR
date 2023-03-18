@@ -39,4 +39,13 @@ export class MenuItemComponent {
     else
       return 0;
   }
+
+  getColor(count: number){
+    if (count == 0){
+      return '#adadad'
+    }else{
+      return '#02bd21'
+    }
+
+  }
 }
