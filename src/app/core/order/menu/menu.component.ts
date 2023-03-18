@@ -85,6 +85,11 @@ export class MenuComponent {
       ordersArray.push(JSON.stringify(Array.from(newOrder.entries())));
       StorageUtilities.setAllOrders = JSON.stringify(ordersArray);
     }
+    
+    var listOfOccupiedTables = JSON.parse(StorageUtilities.getOccupiedTables);
+    if (listOfOccupiedTables == null) listOfOccupiedTables = [];
+    listOfOccupiedTables.push(StorageUtilities.getTableNumber);
+    StorageUtilities.setOccupiedTables = JSON.stringify(listOfOccupiedTables);
     this.router.navigate(['./status'])
   }
 
