@@ -47,7 +47,7 @@ export class StatusComponent {
       case "Preparing":
           this.preparingOrderFlag = true;
           break;
-      case "Status":
+      case "Completed":
           this.completedOrderFlag = true;
           break;
     }

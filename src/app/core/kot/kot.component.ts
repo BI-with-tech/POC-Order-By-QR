@@ -77,6 +77,19 @@ export class KotComponent {
     });
     console.log(this.allOrders);
 
+    // If order is complete, vacate the table
+    if(newStatus=="Completed"){
+      var listOfOccupiedTables = JSON.parse(StorageUtilities.getOccupiedTables);
+      var tableNumberToVacate = this.allOrders.filter((order) => {
+        return order.get("orderTime") == orderTime;
+      })[0].get('tableNumber');
+      listOfOccupiedTables.forEach((element,index)=>{
+        if(element==tableNumberToVacate) delete listOfOccupiedTables[index];
+     });
+     
+      StorageUtilities.setOccupiedTables = JSON.stringify(listOfOccupiedTables);
+    }
+
     var existingOrders = [];
     for(let order of this.allOrders){
       existingOrders.push(JSON.stringify(Array.from(order.entries())));
