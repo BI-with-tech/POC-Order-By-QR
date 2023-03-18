@@ -61,13 +61,21 @@ export class MenuItemComponent {
 
   descContent(item){
     let desc = new String (item.itemDesc);
-  
+    let lim:number;
+    lim = 50;
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+
+    if (window.innerWidth > window.innerHeight){
+      lim = 100;
+    }
+    
     if (!this.more.has(item.itemCode)){
       this.more.set(item.itemCode, false);
     }
     console.log(this.more[item.itemCode])
-    if ((desc.length > 50) && (this.more[item.itemCode] !== true)){
-      return desc.slice(0, 47) + '...'
+    if ((desc.length > lim) && (this.more[item.itemCode] !== true)){
+      return desc.slice(0, lim-3) + '...'
     }else{
       return desc
     }
