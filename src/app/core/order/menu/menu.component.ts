@@ -90,7 +90,7 @@ export class MenuComponent {
     if (listOfOccupiedTables == null) listOfOccupiedTables = [];
     listOfOccupiedTables.push(StorageUtilities.getTableNumber);
     StorageUtilities.setOccupiedTables = JSON.stringify(listOfOccupiedTables);
-    this.router.navigate(['./status'])
+    this.router.navigate(['./status']);
   }
 
 }

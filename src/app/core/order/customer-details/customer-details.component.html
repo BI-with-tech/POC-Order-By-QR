@@ -15,7 +15,7 @@
     <mat-label>Happy to listen any comments...</mat-label>
     <textarea matInput [(ngModel)] = "comments"></textarea>
   </mat-form-field>
-  <a mat-fab extended color="primary" class="submit-button" [routerLink]="[redirectPath]">
+  <a mat-fab extended color="primary" class="submit-button" (click)="redirectToPath()">
     <mat-icon>login</mat-icon>
     Go to Menu
   </a>

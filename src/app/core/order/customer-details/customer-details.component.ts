@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 import { StorageUtilities } from '../../utilities/storageUtilities';
 
 @Component({
@@ -13,7 +14,8 @@ export class CustomerDetailsComponent {
   tableNumbers: string[];
   openStatusPage: boolean = false;
   isTableOccupied: boolean = false;
-  redirectPath: string;
+
+  constructor(private router: Router) { }
 
   ngOnInit(){
     this.tableNumbers = ['1', '2', '3', '4', '5', '6', '7'];
@@ -21,10 +23,10 @@ export class CustomerDetailsComponent {
 
   checkWhetherTableIsOccupied(){
     this.isTableOccupied = JSON.parse(StorageUtilities.getOccupiedTables).includes(this.table);
-    this.constructRedirectPath();
   }
 
-  constructRedirectPath(){
-     this.redirectPath = (this.isTableOccupied)? '/status' : ('/menu/' + this.name + '/' + this.table + '/' + this.comments);
+  redirectToPath(){
+     var redirectPath = (this.isTableOccupied)? '/status' : ('/menu/' + this.name + '/' + this.table + '/' + this.comments);
+     this.router.navigate([redirectPath]);
   }
 }
